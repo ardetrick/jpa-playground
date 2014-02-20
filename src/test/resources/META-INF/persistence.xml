@@ -15,7 +15,7 @@
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:/tmp/person_test_db;AUTO_SERVER=TRUE"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:/tmp/testdb;AUTO_SERVER=TRUE"/>
             <property name="javax.persistence.jdbc.user" value="sa"/>
             <property name="javax.persistence.jdbc.password" value=""/>
 
