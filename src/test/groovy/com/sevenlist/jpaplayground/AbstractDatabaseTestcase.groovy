@@ -60,12 +60,14 @@ abstract class AbstractDatabaseTestcase extends Specification {
         startTransaction()
         entityManager.persist(entity)
         commitTransaction()
+        log.info('persisted entity: {}', entity)
     }
 
     protected final <E extends AbstractEntity> E mergeEntity(E entity) {
         startTransaction()
         def mergedEntity = entityManager.merge(entity)
         commitTransaction()
+        log.info('merged entity: {}', entity)
         mergedEntity
     }
 
