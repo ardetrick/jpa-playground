@@ -1,0 +1,21 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>jpa-playground</artifactId>
+
+    <parent>
+        <groupId>com.sevenlist</groupId>
+        <artifactId>jpa-project</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <build>
+        <!--
+            Source directories are needed by profile "indy" (groovyc Ant task) and
+            by profile "jacoco" (to generate *.groovy.html files).
+        -->
+        <sourceDirectory>src/main/groovy</sourceDirectory>
+        <testSourceDirectory>src/test/groovy</testSourceDirectory>
+    </build>
+</project>

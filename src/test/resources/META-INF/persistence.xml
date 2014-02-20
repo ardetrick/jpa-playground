@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <!--
+        "TestDataModel" is the default persistence unit name used by Needle.
+        See http://needle.spree.de/public/documentation/2.2/html/NeedleReference.html#x1-130003
+    -->
+    <persistence-unit name="TestDataModel" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.sevenlist.jpaplayground.datamodel.A</class>
+        <class>com.sevenlist.jpaplayground.datamodel.B</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:/tmp/person_test_db;AUTO_SERVER=TRUE"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+
+            <!-- See http://docs.jboss.org/hibernate/orm/4.2/manual/en-US/html/ch03.html -->
+
+            <!--
+                Automatically validates or exports schema DDL to the database when the SessionFactory is created.
+                With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly.
+                Possible values: validate | update | create | create-drop
+            -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+
+            <!-- Pretty prints the SQL in the log and console. -->
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!--
+                Sets a maximum "depth" for the outer join fetch tree for single-ended associations (one-to-one, many-to-one).
+                A 0 disables default outer join fetching.
+            -->
+            <property name="hibernate.max_fetch_depth" value="3"/>
+
+            <!--
+                Writes all SQL statements to console.
+                This is an alternative to setting the log category org.hibernate.SQL to debug.
+            -->
+            <property name="hibernate.show_sql" value="true"/>
+
+            <!-- Generates comments inside the SQL, for easier debugging. -->
+            <property name="hibernate.use_sql_comments" value="true"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
