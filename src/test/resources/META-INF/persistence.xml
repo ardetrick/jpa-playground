@@ -44,7 +44,7 @@
             <property name="hibernate.show_sql" value="true"/>
 
             <!-- Generates comments inside the SQL, for easier debugging. -->
-            <property name="hibernate.use_sql_comments" value="true"/>
+            <!-- <property name="hibernate.use_sql_comments" value="true"/> -->
         </properties>
     </persistence-unit>
 
