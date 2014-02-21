@@ -11,6 +11,6 @@ appender("STDOUT", ConsoleAppender) {
 
 logger("com.sevenlist", DEBUG)
 
-logger("org.hibernate.type", TRACE)
+// logger("org.hibernate.type", TRACE)
 
-root(INFO, ["STDOUT"])
+root(ERROR, ["STDOUT"])

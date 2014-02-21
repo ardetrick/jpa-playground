@@ -29,7 +29,7 @@
             <property name="hibernate.hbm2ddl.auto" value="create"/>
 
             <!-- Pretty prints the SQL in the log and console. -->
-            <property name="hibernate.format_sql" value="true"/>
+            <!-- <property name="hibernate.format_sql" value="true"/> -->
 
             <!--
                 Sets a maximum "depth" for the outer join fetch tree for single-ended associations (one-to-one, many-to-one).
@@ -40,8 +40,8 @@
             <!--
                 Writes all SQL statements to console.
                 This is an alternative to setting the log category org.hibernate.SQL to debug.
+                <property name="hibernate.show_sql" value="true"/>
             -->
-            <property name="hibernate.show_sql" value="true"/>
 
             <!-- Generates comments inside the SQL, for easier debugging. -->
             <!-- <property name="hibernate.use_sql_comments" value="true"/> -->
