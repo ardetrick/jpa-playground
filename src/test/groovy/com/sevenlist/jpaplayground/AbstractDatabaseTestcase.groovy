@@ -37,7 +37,7 @@ abstract class AbstractDatabaseTestcase extends Specification {
         }
         entityTransaction.begin()
         entityManager.clear()
-        log.info('transaction begun')
+        log.debug('transaction begun')
     }
 
     protected final void commitTransaction() {
@@ -45,7 +45,7 @@ abstract class AbstractDatabaseTestcase extends Specification {
             throw new IllegalStateException('no transaction is active')
         }
         entityTransaction.commit()
-        log.info('transaction committed')
+        log.debug('transaction committed')
     }
 
     protected final void rollbackTransaction() {
@@ -53,21 +53,21 @@ abstract class AbstractDatabaseTestcase extends Specification {
             return
         }
         entityTransaction.rollback()
-        log.info('transaction rolled back')
+        log.debug('transaction rolled back')
     }
 
     protected final void persistEntity(AbstractEntity entity) {
         startTransaction()
         entityManager.persist(entity)
         commitTransaction()
-        log.info('persisted entity: {}', entity)
+        log.debug('persisted entity: {}', entity)
     }
 
     protected final <E extends AbstractEntity> E mergeEntity(E entity) {
         startTransaction()
         def mergedEntity = entityManager.merge(entity)
         commitTransaction()
-        log.info('merged entity: {}', entity)
+        log.debug('merged entity: {}', entity)
         mergedEntity
     }
 
