@@ -11,22 +11,22 @@ class PersistTest extends AbstractDatabaseTestcase {
         A a = new A(b: new B())
 
         when:
-        persistEntity(a)
-        A foundA = newEntityManager().find(A, a.id)
+        persistEntityAndCommit(a)
+        A foundA = findEntity(a)
 
         then:
         foundA.b
     }
 
-    def "persisting a detached B throws a PersistenceException"() {
+    def "A cannot be persisted when B is detached"() {
         given:
         B b = new B()
 
         when:
-        persistEntity(b)
+        persistEntityAndCommit(b)
 
         A a = new A(b: b)
-        persistEntity(a)
+        persistEntityAndCommit(a)
 
         then:
         def e = thrown(PersistenceException)
@@ -38,12 +38,12 @@ class PersistTest extends AbstractDatabaseTestcase {
         B b = new B()
 
         when:
-        persistEntity(b)
+        persistEntityAndCommit(b)
 
         A a = new A(b: b)
-        A mergedA = mergeEntity(a)
+        A mergedA = mergeEntityAndCommit(a)
 
-        A foundA = newEntityManager().find(A, mergedA.id)
+        A foundA = findEntity(mergedA)
 
         then:
         foundA.b

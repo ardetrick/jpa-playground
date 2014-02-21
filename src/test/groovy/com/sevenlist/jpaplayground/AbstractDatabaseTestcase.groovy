@@ -36,8 +36,8 @@ abstract class AbstractDatabaseTestcase extends Specification {
             return
         }
         entityTransaction.begin()
-        entityManager.clear()
         log.debug('transaction begun')
+        entityManager.clear()
     }
 
     protected final void commitTransaction() {
@@ -59,19 +59,32 @@ abstract class AbstractDatabaseTestcase extends Specification {
     protected final void persistEntity(AbstractEntity entity) {
         startTransaction()
         entityManager.persist(entity)
-        commitTransaction()
         log.debug('persisted entity: {}', entity)
     }
 
-    protected final <E extends AbstractEntity> E mergeEntity(E entity) {
+    protected final void persistEntityAndCommit(AbstractEntity entity) {
+        persistEntity(entity)
+        commitTransaction()
+    }
+
+    protected final <T extends AbstractEntity> T mergeEntity(T entity) {
         startTransaction()
         def mergedEntity = entityManager.merge(entity)
-        commitTransaction()
         log.debug('merged entity: {}', entity)
         mergedEntity
     }
 
-    protected EntityManager newEntityManager() {
+    protected final <T extends AbstractEntity> T mergeEntityAndCommit(T entity) {
+        def mergedEntity = mergeEntity(entity)
+        commitTransaction()
+        mergedEntity
+    }
+
+    protected final EntityManager newEntityManager() {
         databaseRule.entityManagerFactory.createEntityManager()
+    }
+
+    protected final <T extends AbstractEntity> T findEntity(T entity) {
+        newEntityManager().find(entity.class, entity.id)
     }
 }
