@@ -12,7 +12,7 @@ class PersistTest extends AbstractDatabaseTestcase {
 
         when:
         persistEntityAndCommit(a)
-        A foundA = findEntity(a)
+        A foundA = findEntityWithNewEntityManager(a)
 
         then:
         foundA.b
@@ -45,7 +45,7 @@ class PersistTest extends AbstractDatabaseTestcase {
         A a = new A(b: foundB)
         persistEntityAndCommit(a)
 
-        A foundA = findEntity(a)
+        A foundA = findEntityWithNewEntityManager(a)
 
         then:
         foundA.b
@@ -63,7 +63,7 @@ class PersistTest extends AbstractDatabaseTestcase {
         A a = new A(b: mergedB)
         persistEntityAndCommit(a)
 
-        A foundA = findEntity(a)
+        A foundA = findEntityWithNewEntityManager(a)
 
         then:
         foundA.b
@@ -79,7 +79,7 @@ class PersistTest extends AbstractDatabaseTestcase {
         A a = new A(b: b)
         A mergedA = mergeEntityAndCommit(a)
 
-        A foundA = findEntity(mergedA)
+        A foundA = findEntityWithNewEntityManager(mergedA)
 
         then:
         foundA.b

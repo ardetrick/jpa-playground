@@ -84,7 +84,7 @@ abstract class AbstractDatabaseTestcase extends Specification {
         databaseRule.entityManagerFactory.createEntityManager()
     }
 
-    protected final <T extends AbstractEntity> T findEntity(T entity) {
+    protected final <T extends AbstractEntity> T findEntityWithNewEntityManager(T entity) {
         newEntityManager().find(entity.class, entity.id)
     }
 }
