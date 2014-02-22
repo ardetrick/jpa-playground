@@ -13,10 +13,16 @@
         <class>com.sevenlist.jpaplayground.datamodel.A</class>
         <class>com.sevenlist.jpaplayground.datamodel.B</class>
         <class>com.sevenlist.jpaplayground.datamodel.mapping.manytoone.EmployeeManyToOne</class>
-        <class>com.sevenlist.jpaplayground.datamodel.mapping.manytoone.Department</class>
+        <class>com.sevenlist.jpaplayground.datamodel.mapping.manytoone.DepartmentManyToOne</class>
         <class>com.sevenlist.jpaplayground.datamodel.mapping.onetoone.unidirectional.EmployeeOneToOneUnidirectional
         </class>
-        <class>com.sevenlist.jpaplayground.datamodel.mapping.onetoone.unidirectional.ParkingSpace</class>
+        <class>
+            com.sevenlist.jpaplayground.datamodel.mapping.onetoone.unidirectional.ParkingSpaceOneToOneUnidirectional
+        </class>
+        <class>com.sevenlist.jpaplayground.datamodel.mapping.onetoone.bidirectional.EmployeeOneToOneBidirectional
+        </class>
+        <class>com.sevenlist.jpaplayground.datamodel.mapping.onetoone.bidirectional.ParkingSpaceOneToOneBidirectional
+        </class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

@@ -13,5 +13,5 @@ import static javax.persistence.CascadeType.PERSIST
 class EmployeeManyToOne extends AbstractEntity {
 
     @ManyToOne(cascade = PERSIST)
-    Department department
+    DepartmentManyToOne department
 }

@@ -1,4 +1,4 @@
-package com.sevenlist.jpaplayground.datamodel.mapping.onetoone.unidirectional
+package com.sevenlist.jpaplayground.datamodel.mapping.onetoone.bidirectional
 
 import com.sevenlist.jpaplayground.datamodel.AbstractEntity
 import groovy.transform.ToString
@@ -10,8 +10,8 @@ import static javax.persistence.CascadeType.PERSIST
 
 @Entity
 @ToString(includeSuper = true, includeNames = true, includeFields = true, includePackage = false)
-class EmployeeOneToOneUnidirectional extends AbstractEntity {
+class EmployeeOneToOneBidirectional extends AbstractEntity {
 
     @OneToOne(cascade = PERSIST)
-    ParkingSpaceOneToOneUnidirectional parkingSpace
+    ParkingSpaceOneToOneBidirectional parkingSpace
 }

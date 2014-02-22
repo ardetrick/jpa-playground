@@ -2,11 +2,11 @@ package com.sevenlist.jpaplayground.datamodel.mapping.onetoone.unidirectional
 
 import com.sevenlist.jpaplayground.AbstractDatabaseTestcase
 
-class OneToOneTest extends AbstractDatabaseTestcase {
+class OneToOneUnidirectionalTest extends AbstractDatabaseTestcase {
 
     def "employee and parking space are persisted"() {
         given:
-        def employee = new EmployeeOneToOneUnidirectional(parkingSpace: new ParkingSpace())
+        def employee = new EmployeeOneToOneUnidirectional(parkingSpace: new ParkingSpaceOneToOneUnidirectional())
 
         when:
         persistEntityAndCommit(employee)

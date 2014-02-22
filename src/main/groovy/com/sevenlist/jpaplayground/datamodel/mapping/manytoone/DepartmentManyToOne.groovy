@@ -7,5 +7,5 @@ import javax.persistence.Entity
 
 @Entity
 @ToString(includeSuper = true, includeNames = true, includeFields = true, includePackage = false)
-class Department extends AbstractEntity {
+class DepartmentManyToOne extends AbstractEntity {
 }
