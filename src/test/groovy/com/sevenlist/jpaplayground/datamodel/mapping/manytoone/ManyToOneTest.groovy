@@ -6,11 +6,11 @@ class ManyToOneTest extends AbstractDatabaseTestcase {
 
     def "employee and department are persisted"() {
         given:
-        def employee = new Employee(department: new Department())
+        def employee = new EmployeeManyToOne(department: new Department())
 
         when:
         persistEntityAndCommit(employee)
-        Employee foundEmployee = findEntityWithNewEntityManager(employee)
+        EmployeeManyToOne foundEmployee = findEntityWithNewEntityManager(employee)
 
         then:
         foundEmployee.department
