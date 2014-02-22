@@ -12,6 +12,8 @@
 
         <class>com.sevenlist.jpaplayground.datamodel.A</class>
         <class>com.sevenlist.jpaplayground.datamodel.B</class>
+        <class>com.sevenlist.jpaplayground.datamodel.mapping.manytoone.Employee</class>
+        <class>com.sevenlist.jpaplayground.datamodel.mapping.manytoone.Department</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>

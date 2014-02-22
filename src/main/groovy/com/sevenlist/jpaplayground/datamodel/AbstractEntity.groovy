@@ -10,7 +10,7 @@ import static javax.persistence.GenerationType.SEQUENCE
 
 @MappedSuperclass
 @ToString(includeNames = true, includeFields = true, includePackage = false)
-abstract class AbstractEntity   {
+abstract class AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = SEQUENCE)
