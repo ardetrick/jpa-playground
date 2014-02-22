@@ -40,8 +40,7 @@ class PersistTest extends AbstractDatabaseTestcase {
         when:
         persistEntityAndCommit(b)
 
-        startTransaction()
-        B foundB = entityManager.find(B, b.id)
+        B foundB = findEntity(b)
         A a = new A(b: foundB)
         persistEntityAndCommit(a)
 
@@ -50,7 +49,6 @@ class PersistTest extends AbstractDatabaseTestcase {
         then:
         foundA.b
     }
-
 
     def "A can be persisted when detached B is merged before"() {
         given:
