@@ -33,6 +33,25 @@ class PersistTest extends AbstractDatabaseTestcase {
         e.message.contains 'detached entity'
     }
 
+    def "A can be persisted when detached B is found before"() {
+        given:
+        B b = new B()
+
+        when:
+        persistEntityAndCommit(b)
+
+        startTransaction()
+        B foundB = entityManager.find(B, b.id)
+        A a = new A(b: foundB)
+        persistEntityAndCommit(a)
+
+        A foundA = findEntity(a)
+
+        then:
+        foundA.b
+    }
+
+
     def "A can be persisted when detached B is merged before"() {
         given:
         B b = new B()
