@@ -1,10 +1,10 @@
-package com.sevenlist.jpaplayground.datamodel
+package com.sevenlist.jpaplayground.datamodel.cascading
 
 import com.sevenlist.jpaplayground.AbstractDatabaseTestcase
 
 import javax.persistence.PersistenceException
 
-class PersistTest extends AbstractDatabaseTestcase {
+class CascadePersistTest extends AbstractDatabaseTestcase {
 
     def "cascading persist stores new A and new B"() {
         given:

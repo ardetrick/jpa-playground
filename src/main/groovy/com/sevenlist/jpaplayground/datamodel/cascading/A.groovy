@@ -1,5 +1,6 @@
-package com.sevenlist.jpaplayground.datamodel
+package com.sevenlist.jpaplayground.datamodel.cascading
 
+import com.sevenlist.jpaplayground.datamodel.AbstractEntity
 import groovy.transform.ToString
 
 import javax.persistence.Entity
