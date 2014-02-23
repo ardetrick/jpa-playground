@@ -4,15 +4,15 @@ import com.sevenlist.jpaplayground.AbstractDatabaseTestcase
 
 class OneToManyUnidirectionalTest extends AbstractDatabaseTestcase {
 
-    def "department and employee are persisted"() {
+    def "employee and phone are persisted"() {
         given:
-        def department = new DepartmentOneToManyUnidirectional(employees: [new EmployeeOneToManyUnidirectional()])
+        def employee = new EmployeeOneToManyUnidirectional(phones: [new PhoneOneToManyUnidirectional()])
 
         when:
-        persistEntityAndCommit(department)
-        DepartmentOneToManyUnidirectional foundDepartment = findEntityWithNewEntityManager(department)
+        persistEntityAndCommit(employee)
+        EmployeeOneToManyUnidirectional foundEmployee = findEntityWithNewEntityManager(employee)
 
         then:
-        foundDepartment.employees[0].id
+        foundEmployee.phones.size() == 1
     }
 }

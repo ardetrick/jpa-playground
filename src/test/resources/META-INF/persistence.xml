@@ -35,10 +35,10 @@
 
         <!-- One-to-Many, unidirectional -->
         <class>
-            com.sevenlist.jpaplayground.datamodel.mapping.onetomany.unidirectional.DepartmentOneToManyUnidirectional
+            com.sevenlist.jpaplayground.datamodel.mapping.onetomany.unidirectional.EmployeeOneToManyUnidirectional
         </class>
         <class>
-            com.sevenlist.jpaplayground.datamodel.mapping.onetomany.unidirectional.EmployeeOneToManyUnidirectional
+            com.sevenlist.jpaplayground.datamodel.mapping.onetomany.unidirectional.PhoneOneToManyUnidirectional
         </class>
 
         <!-- One-to-Many, bidirectional -->
