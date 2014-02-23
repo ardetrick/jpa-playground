@@ -73,6 +73,21 @@ class PersistTest extends AbstractDatabaseTestcase {
         foundA.b
     }
 
+    def "A can be persisted when B was persisted in the same transaction before"() {
+        given:
+        B b = new B()
+        A a = new A(b: b)
+
+        when:
+        persistEntity(b)
+        persistEntityAndCommit(a)
+
+        A foundA = findEntityWithNewEntityManager(a)
+
+        then:
+        foundA.b
+    }
+
     def "A can be persisted when detached B is merged before"() {
         given:
         B b = new B()
