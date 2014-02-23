@@ -37,8 +37,6 @@ abstract class AbstractDatabaseTestcase extends Specification {
         }
         entityTransaction.begin()
         log.debug('transaction begun')
-        entityManager.clear()
-        log.debug('persistence context cleared')
     }
 
     protected final void commitTransaction() {
@@ -57,6 +55,12 @@ abstract class AbstractDatabaseTestcase extends Specification {
         log.debug('transaction rolled back')
     }
 
+    protected final <T extends AbstractEntity> T findEntity(T entity) {
+        def foundEntity = entityManager.find(entity.class, entity.id)
+        log.debug('found entity: {}', foundEntity)
+        foundEntity
+    }
+
     protected final void persistEntity(AbstractEntity entity) {
         startTransaction()
         entityManager.persist(entity)
@@ -66,6 +70,7 @@ abstract class AbstractDatabaseTestcase extends Specification {
     protected final void persistEntityAndCommit(AbstractEntity entity) {
         persistEntity(entity)
         commitTransaction()
+        detachEntity(entity)
     }
 
     protected final <T extends AbstractEntity> T mergeEntity(T entity) {
@@ -78,13 +83,12 @@ abstract class AbstractDatabaseTestcase extends Specification {
     protected final <T extends AbstractEntity> T mergeEntityAndCommit(T entity) {
         def mergedEntity = mergeEntity(entity)
         commitTransaction()
+        detachEntity(mergedEntity)
         mergedEntity
     }
 
-    protected final <T extends AbstractEntity> T findEntity(T entity) {
-        startTransaction()
-        def foundEntity = entityManager.find(entity.class, entity.id)
-        log.debug('found entity: {}', foundEntity)
-        foundEntity
+    protected final void detachEntity(AbstractEntity entity) {
+        entityManager.detach(entity)
+        log.debug('detached entity: {}', entity)
     }
 }

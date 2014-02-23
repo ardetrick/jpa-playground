@@ -9,5 +9,5 @@ import javax.persistence.OneToMany
 class DepartmentOneToManyBidirectional extends AbstractEntity {
 
     @OneToMany(mappedBy = 'department')
-    Collection<EmployeeOneToManyBidirectional> employees
+    Collection<EmployeeOneToManyBidirectional> employees = [] as Set
 }

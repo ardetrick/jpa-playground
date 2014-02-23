@@ -11,6 +11,7 @@ class OneToOneBidirectionalTest extends AbstractDatabaseTestcase {
         when:
         persistEntityAndCommit(employee)
         EmployeeOneToOneBidirectional foundEmployee = findEntity(employee)
+        detachEntity(foundEmployee)
 
         then:
         foundEmployee.parkingSpace.employee

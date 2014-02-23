@@ -6,11 +6,13 @@ class ManyToManyTest extends AbstractDatabaseTestcase {
 
     def "employee and project are persisted"() {
         given:
-        def employee = new EmployeeManyToMany(projects: [new ProjectManyToMany()])
+        EmployeeManyToMany employee = new EmployeeManyToMany()
+        employee.addProject(new ProjectManyToMany())
 
         when:
         persistEntityAndCommit(employee)
         EmployeeManyToMany foundEmployee = findEntity(employee)
+        detachEntity(foundEmployee)
 
         then:
         foundEmployee.projects[0].employees.size() == 1

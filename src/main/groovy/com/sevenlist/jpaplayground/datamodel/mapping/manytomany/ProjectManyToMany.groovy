@@ -9,5 +9,5 @@ import javax.persistence.ManyToMany
 class ProjectManyToMany extends AbstractEntity {
 
     @ManyToMany(mappedBy = 'projects')
-    Collection<EmployeeManyToMany> employees
+    Collection<EmployeeManyToMany> employees = [] as Set
 }

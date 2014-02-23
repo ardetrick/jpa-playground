@@ -11,6 +11,7 @@ class OneToManyBidirectionalTest extends AbstractDatabaseTestcase {
         when:
         persistEntityAndCommit(employee)
         EmployeeOneToManyBidirectional foundEmployee = findEntity(employee)
+        detachEntity(foundEmployee)
 
         then:
         foundEmployee.department.employees.size() == 1
