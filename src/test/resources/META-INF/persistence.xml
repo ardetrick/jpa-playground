@@ -12,16 +12,33 @@
 
         <class>com.sevenlist.jpaplayground.datamodel.A</class>
         <class>com.sevenlist.jpaplayground.datamodel.B</class>
+
+        <!-- Many-to-one -->
         <class>com.sevenlist.jpaplayground.datamodel.mapping.manytoone.EmployeeManyToOne</class>
         <class>com.sevenlist.jpaplayground.datamodel.mapping.manytoone.DepartmentManyToOne</class>
-        <class>com.sevenlist.jpaplayground.datamodel.mapping.onetoone.unidirectional.EmployeeOneToOneUnidirectional
+
+        <!-- One-to-One, unidirectional -->
+        <class>
+            com.sevenlist.jpaplayground.datamodel.mapping.onetoone.unidirectional.EmployeeOneToOneUnidirectional
         </class>
         <class>
             com.sevenlist.jpaplayground.datamodel.mapping.onetoone.unidirectional.ParkingSpaceOneToOneUnidirectional
         </class>
-        <class>com.sevenlist.jpaplayground.datamodel.mapping.onetoone.bidirectional.EmployeeOneToOneBidirectional
+
+        <!-- One-to-One, bidirectional -->
+        <class>
+            com.sevenlist.jpaplayground.datamodel.mapping.onetoone.bidirectional.EmployeeOneToOneBidirectional
         </class>
-        <class>com.sevenlist.jpaplayground.datamodel.mapping.onetoone.bidirectional.ParkingSpaceOneToOneBidirectional
+        <class>
+            com.sevenlist.jpaplayground.datamodel.mapping.onetoone.bidirectional.ParkingSpaceOneToOneBidirectional
+        </class>
+
+        <!-- One-to-Many, bidirectional -->
+        <class>
+            com.sevenlist.jpaplayground.datamodel.mapping.onetomany.bidirectional.DepartmentOneToManyBidirectional
+        </class>
+        <class>
+            com.sevenlist.jpaplayground.datamodel.mapping.onetomany.bidirectional.EmployeeOneToManyBidirectional
         </class>
 
         <properties>
