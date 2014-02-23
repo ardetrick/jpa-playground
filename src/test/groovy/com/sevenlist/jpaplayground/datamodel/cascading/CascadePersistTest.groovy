@@ -1,6 +1,8 @@
 package com.sevenlist.jpaplayground.datamodel.cascading
 
 import com.sevenlist.jpaplayground.AbstractDatabaseTestcase
+import com.sevenlist.jpaplayground.datamodel.A
+import com.sevenlist.jpaplayground.datamodel.B
 
 import javax.persistence.PersistenceException
 
