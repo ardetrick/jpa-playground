@@ -40,8 +40,10 @@ class PersistTest extends AbstractDatabaseTestcase {
         when:
         persistEntityAndCommit(b)
 
+        // detached b becomes managed again
         B foundB = findEntity(b)
         A a = new A(b: foundB)
+        // em.persist(b) triggered by the cascading persist is ignored, as b is already managed
         persistEntityAndCommit(a)
 
         A foundA = findEntityWithNewEntityManager(a)
@@ -57,8 +59,10 @@ class PersistTest extends AbstractDatabaseTestcase {
         when:
         persistEntityAndCommit(b)
 
+        // detached b becomes managed again
         B mergedB = mergeEntity(b)
         A a = new A(b: mergedB)
+        // em.persist(b) triggered by the cascading persist is ignored, as b is already managed
         persistEntityAndCommit(a)
 
         A foundA = findEntityWithNewEntityManager(a)
