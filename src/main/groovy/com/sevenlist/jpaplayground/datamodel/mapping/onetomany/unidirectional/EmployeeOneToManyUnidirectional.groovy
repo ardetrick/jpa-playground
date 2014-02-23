@@ -6,10 +6,11 @@ import javax.persistence.Entity
 import javax.persistence.OneToMany
 
 import static javax.persistence.CascadeType.PERSIST
+import static javax.persistence.FetchType.EAGER
 
 @Entity
 class EmployeeOneToManyUnidirectional extends AbstractEntity {
 
-    @OneToMany(cascade = PERSIST)
+    @OneToMany(cascade = PERSIST, fetch = EAGER)
     Collection<PhoneOneToManyUnidirectional> phones
 }
