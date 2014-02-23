@@ -10,7 +10,7 @@ class ManyToManyTest extends AbstractDatabaseTestcase {
 
         when:
         persistEntityAndCommit(employee)
-        EmployeeManyToMany foundEmployee = findEntityWithNewEntityManager(employee)
+        EmployeeManyToMany foundEmployee = findEntity(employee)
 
         then:
         foundEmployee.projects[0].employees.size() == 1

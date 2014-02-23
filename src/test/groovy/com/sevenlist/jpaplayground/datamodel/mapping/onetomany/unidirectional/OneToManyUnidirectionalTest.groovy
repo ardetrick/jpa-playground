@@ -10,7 +10,7 @@ class OneToManyUnidirectionalTest extends AbstractDatabaseTestcase {
 
         when:
         persistEntityAndCommit(employee)
-        EmployeeOneToManyUnidirectional foundEmployee = findEntityWithNewEntityManager(employee)
+        EmployeeOneToManyUnidirectional foundEmployee = findEntity(employee)
 
         then:
         foundEmployee.phones.size() == 1

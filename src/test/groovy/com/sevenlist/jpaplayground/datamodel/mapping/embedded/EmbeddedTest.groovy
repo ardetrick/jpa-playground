@@ -11,7 +11,7 @@ class EmbeddedTest extends AbstractDatabaseTestcase {
         when:
         persistEntityAndCommit(employee)
 
-        EmployeeEmbedded foundEmployee = findEntityWithNewEntityManager(employee)
+        EmployeeEmbedded foundEmployee = findEntity(employee)
 
         then:
         foundEmployee.address.street == 'Street'

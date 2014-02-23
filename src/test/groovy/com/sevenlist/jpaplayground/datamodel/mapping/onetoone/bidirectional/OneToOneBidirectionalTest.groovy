@@ -10,7 +10,7 @@ class OneToOneBidirectionalTest extends AbstractDatabaseTestcase {
 
         when:
         persistEntityAndCommit(employee)
-        EmployeeOneToOneBidirectional foundEmployee = findEntityWithNewEntityManager(employee)
+        EmployeeOneToOneBidirectional foundEmployee = findEntity(employee)
 
         then:
         foundEmployee.parkingSpace.employee

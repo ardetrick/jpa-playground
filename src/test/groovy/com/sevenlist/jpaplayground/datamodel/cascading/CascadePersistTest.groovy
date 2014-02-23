@@ -12,7 +12,7 @@ class CascadePersistTest extends AbstractDatabaseTestcase {
 
         when:
         persistEntityAndCommit(a)
-        A foundA = findEntityWithNewEntityManager(a)
+        A foundA = findEntity(a)
 
         then:
         foundA.b
@@ -46,7 +46,7 @@ class CascadePersistTest extends AbstractDatabaseTestcase {
         // em.persist(b) triggered by the cascading persist is ignored, as b is already managed
         persistEntityAndCommit(a)
 
-        A foundA = findEntityWithNewEntityManager(a)
+        A foundA = findEntity(a)
 
         then:
         foundA.b
@@ -67,7 +67,7 @@ class CascadePersistTest extends AbstractDatabaseTestcase {
         // a can be persisted, as persisting of already managed (and formerly persisted) b is ignored
         persistEntityAndCommit(a)
 
-        A foundA = findEntityWithNewEntityManager(a)
+        A foundA = findEntity(a)
 
         then:
         foundA.b
@@ -82,7 +82,7 @@ class CascadePersistTest extends AbstractDatabaseTestcase {
         persistEntity(b)
         persistEntityAndCommit(a)
 
-        A foundA = findEntityWithNewEntityManager(a)
+        A foundA = findEntity(a)
 
         then:
         foundA.b
@@ -101,7 +101,7 @@ class CascadePersistTest extends AbstractDatabaseTestcase {
         // em.persist(b) triggered by the cascading persist is ignored, as b is already managed
         persistEntityAndCommit(a)
 
-        A foundA = findEntityWithNewEntityManager(a)
+        A foundA = findEntity(a)
 
         then:
         foundA.b
@@ -117,9 +117,7 @@ class CascadePersistTest extends AbstractDatabaseTestcase {
         A a = new A(b: b)
         A mergedA = mergeEntityAndCommit(a)
 
-        A foundA = findEntityWithNewEntityManager(mergedA)
-
         then:
-        foundA.b
+        mergedA.b
     }
 }

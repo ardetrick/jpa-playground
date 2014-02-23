@@ -38,6 +38,7 @@ abstract class AbstractDatabaseTestcase extends Specification {
         entityTransaction.begin()
         log.debug('transaction begun')
         entityManager.clear()
+        log.debug('persistence context cleared')
     }
 
     protected final void commitTransaction() {
@@ -80,21 +81,9 @@ abstract class AbstractDatabaseTestcase extends Specification {
         mergedEntity
     }
 
-    protected final EntityManager newEntityManager() {
-        databaseRule.entityManagerFactory.createEntityManager()
-    }
-
     protected final <T extends AbstractEntity> T findEntity(T entity) {
         startTransaction()
-        findEntityUsingEntityManager(entity)
-    }
-
-    protected final <T extends AbstractEntity> T findEntityWithNewEntityManager(T entity) {
-        findEntityUsingEntityManager(entity, newEntityManager())
-    }
-
-    private <T extends AbstractEntity> T findEntityUsingEntityManager(T entity, EntityManager em = entityManager) {
-        def foundEntity = em.find(entity.class, entity.id)
+        def foundEntity = entityManager.find(entity.class, entity.id)
         log.debug('found entity: {}', foundEntity)
         foundEntity
     }

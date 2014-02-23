@@ -14,9 +14,5 @@ abstract class AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = SEQUENCE)
-    private Long id
-
-    public Long getId() {
-        id
-    }
+    Long id
 }

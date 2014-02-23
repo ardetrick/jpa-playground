@@ -10,7 +10,7 @@ class ManyToOneTest extends AbstractDatabaseTestcase {
 
         when:
         persistEntityAndCommit(employee)
-        EmployeeManyToOne foundEmployee = findEntityWithNewEntityManager(employee)
+        EmployeeManyToOne foundEmployee = findEntity(employee)
 
         then:
         foundEmployee.department
