@@ -49,6 +49,10 @@
             com.sevenlist.jpaplayground.datamodel.mapping.onetomany.bidirectional.EmployeeOneToManyBidirectional
         </class>
 
+        <!-- Many-to-Many -->
+        <class>com.sevenlist.jpaplayground.datamodel.mapping.manytomany.EmployeeManyToMany</class>
+        <class>com.sevenlist.jpaplayground.datamodel.mapping.manytomany.ProjectManyToMany</class>
+
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
             <!-- <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1"/> -->
