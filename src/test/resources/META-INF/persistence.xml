@@ -57,11 +57,11 @@
         <class>com.sevenlist.jpaplayground.datamodel.mapping.embedded.EmployeeEmbedded</class>
 
         <properties>
-            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.driver" value="${database.driver}"/>
             <!-- <property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1"/> -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:h2:/tmp/testdb;AUTO_SERVER=TRUE"/>
-            <property name="javax.persistence.jdbc.user" value="sa"/>
-            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="${database.url}"/>
+            <property name="javax.persistence.jdbc.user" value="${database.username}"/>
+            <property name="javax.persistence.jdbc.password" value="${database.password}"/>
 
             <!-- See http://docs.jboss.org/hibernate/orm/4.2/manual/en-US/html/ch03.html -->
 
@@ -70,7 +70,7 @@
                 With create-drop, the database schema will be dropped when the SessionFactory is closed explicitly.
                 Possible values: validate | update | create | create-drop
             -->
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
 
             <!-- Pretty prints the SQL in the log and console. -->
             <!-- <property name="hibernate.format_sql" value="true"/> -->

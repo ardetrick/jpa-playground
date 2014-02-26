@@ -11,6 +11,13 @@
         <relativePath/>
     </parent>
 
+    <properties>
+        <database.driver>org.h2.Driver</database.driver>
+        <database.url>jdbc:h2:/tmp/testdb;AUTO_SERVER=TRUE</database.url>
+        <database.username>sa</database.username>
+        <database.password></database.password>
+    </properties>
+
     <build>
         <!--
             Source directories are needed by profile "indy" (groovyc Ant task) and
