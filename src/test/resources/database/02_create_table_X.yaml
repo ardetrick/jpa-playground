@@ -1,0 +1,24 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: sevenlist
+      preConditions:
+        - tableExists:
+            schemaName: PUBLIC
+            tableName: B
+      changes:
+        - createTable:
+            tableName: X
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: B_ID
+                  type: BIGINT(19)
+                  constraints:
+                    references: B
+                    foreignKeyName: FK_X_B_ID

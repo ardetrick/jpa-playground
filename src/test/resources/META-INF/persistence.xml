@@ -12,6 +12,7 @@
 
         <class>com.sevenlist.jpaplayground.datamodel.A</class>
         <class>com.sevenlist.jpaplayground.datamodel.B</class>
+        <class>com.sevenlist.jpaplayground.datamodel.X</class>
 
         <!-- Many-to-one -->
         <class>com.sevenlist.jpaplayground.datamodel.mapping.manytoone.EmployeeManyToOne</class>

@@ -3,3 +3,7 @@ databaseChangeLog:
   - include:
       file: 01_create_initial_database_schema.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: 02_create_table_X.yaml
+      relativeToChangelogFile: true
