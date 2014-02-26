@@ -1,0 +1,523 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: sevenlist
+      changes:
+        - createSequence:
+            sequenceName: HIBERNATE_SEQUENCE
+
+  - changeSet:
+      id: 2
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: A
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+              - column:
+                  name: B_ID
+                  type: BIGINT(19)
+
+  - changeSet:
+      id: 3
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: B
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+
+  - changeSet:
+      id: 4
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: DEPARTMENTMANYTOONE
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 5
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: DEPARTMENTONETOMANYBIDIRECTIONAL
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 6
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEEMBEDDED
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: STREET
+                  type: VARCHAR(255)
+
+  - changeSet:
+      id: 7
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEMANYTOMANY
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 8
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEMANYTOMANY_PROJECTMANYTOMANY
+            columns:
+              - column:
+                  name: EMPLOYEES_ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PROJECTS_ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 9
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEMANYTOONE
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: DEPARTMENT_ID
+                  type: BIGINT(19)
+
+  - changeSet:
+      id: 10
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEONETOMANYBIDIRECTIONAL
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: DEPARTMENT_ID
+                  type: BIGINT(19)
+
+  - changeSet:
+      id: 11
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEONETOMANYUNIDIRECTIONAL
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 12
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEONETOMANYUNIDIRECTIONAL_PHONEONETOMANYUNIDIRECTIONAL
+            columns:
+              - column:
+                  name: EMPLOYEEONETOMANYUNIDIRECTIONAL_ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PHONES_ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 13
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEONETOONEBIDIRECTIONAL
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PARKINGSPACE_ID
+                  type: BIGINT(19)
+
+  - changeSet:
+      id: 14
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: EMPLOYEEONETOONEUNIDIRECTIONAL
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: PARKINGSPACE_ID
+                  type: BIGINT(19)
+
+  - changeSet:
+      id: 15
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: PARKINGSPACEONETOONEBIDIRECTIONAL
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 16
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: PARKINGSPACEONETOONEUNIDIRECTIONAL
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 17
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: PHONEONETOMANYUNIDIRECTIONAL
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 18
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: PROJECTMANYTOMANY
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+
+  - changeSet:
+      id: 19
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_1
+            tableName: EMPLOYEEONETOONEUNIDIRECTIONAL
+
+  - changeSet:
+      id: 20
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_4
+            tableName: A
+
+  - changeSet:
+      id: 21
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_42_0
+            tableName: B
+
+  - changeSet:
+      id: 22
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_6
+            tableName: DEPARTMENTMANYTOONE
+
+  - changeSet:
+      id: 23
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_60
+            tableName: PROJECTMANYTOMANY
+
+  - changeSet:
+      id: 24
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_61
+            tableName: PARKINGSPACEONETOONEBIDIRECTIONAL
+
+  - changeSet:
+      id: 25
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_6D
+            tableName: EMPLOYEEONETOMANYUNIDIRECTIONAL
+
+  - changeSet:
+      id: 26
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_7
+            tableName: EMPLOYEEONETOMANYBIDIRECTIONAL
+
+  - changeSet:
+      id: 27
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_73
+            tableName: PHONEONETOMANYUNIDIRECTIONAL
+
+  - changeSet:
+      id: 28
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_8
+            tableName: EMPLOYEEEMBEDDED
+
+  - changeSet:
+      id: 29
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_A
+            tableName: EMPLOYEEMANYTOONE
+
+  - changeSet:
+      id: 30
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_A5
+            tableName: EMPLOYEEONETOONEBIDIRECTIONAL
+
+  - changeSet:
+      id: 31
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_C
+            tableName: PARKINGSPACEONETOONEUNIDIRECTIONAL
+
+  - changeSet:
+      id: 32
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_F
+            tableName: DEPARTMENTONETOMANYBIDIRECTIONAL
+
+  - changeSet:
+      id: 33
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_FA
+            tableName: EMPLOYEEMANYTOMANY
+
+  - changeSet:
+      id: 34
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: PARKINGSPACE_ID
+            baseTableName: EMPLOYEEONETOONEBIDIRECTIONAL
+            constraintName: FK_23OFIOW0V14GRUM39940WHEHT
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: PARKINGSPACEONETOONEBIDIRECTIONAL
+
+  - changeSet:
+      id: 35
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: PROJECTS_ID
+            baseTableName: EMPLOYEEMANYTOMANY_PROJECTMANYTOMANY
+            constraintName: FK_2T1UA63HI5BJUFF1BUUEVRY4J
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: PROJECTMANYTOMANY
+
+  - changeSet:
+      id: 36
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: DEPARTMENT_ID
+            baseTableName: EMPLOYEEMANYTOONE
+            constraintName: FK_352DI4SG1G89OFTJVR60IJMO6
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: DEPARTMENTMANYTOONE
+
+  - changeSet:
+      id: 37
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: PARKINGSPACE_ID
+            baseTableName: EMPLOYEEONETOONEUNIDIRECTIONAL
+            constraintName: FK_3CXT4RR4D7C24KGC74BFHTE4F
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: PARKINGSPACEONETOONEUNIDIRECTIONAL
+
+  - changeSet:
+      id: 38
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: B_ID
+            baseTableName: A
+            constraintName: FK_BEJNKCTWVCJ6D3CI9CY2X7LT0
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: B
+
+  - changeSet:
+      id: 39
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: EMPLOYEES_ID
+            baseTableName: EMPLOYEEMANYTOMANY_PROJECTMANYTOMANY
+            constraintName: FK_GM84S2939NCHMU1L7CGARUXX6
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: EMPLOYEEMANYTOMANY
+
+  - changeSet:
+      id: 40
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: PHONES_ID
+            baseTableName: EMPLOYEEONETOMANYUNIDIRECTIONAL_PHONEONETOMANYUNIDIRECTIONAL
+            constraintName: FK_JCN6VQD84KB27EXXG61DSXSGV
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: PHONEONETOMANYUNIDIRECTIONAL
+
+  - changeSet:
+      id: 41
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: DEPARTMENT_ID
+            baseTableName: EMPLOYEEONETOMANYBIDIRECTIONAL
+            constraintName: FK_N75E5HQ9Q1YULA42QP1O1C4XF
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: DEPARTMENTONETOMANYBIDIRECTIONAL
+
+  - changeSet:
+      id: 42
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: EMPLOYEEONETOMANYUNIDIRECTIONAL_ID
+            baseTableName: EMPLOYEEONETOMANYUNIDIRECTIONAL_PHONEONETOMANYUNIDIRECTIONAL
+            constraintName: FK_NMDXVTG9OWG7028K4U1A4A3NX
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: EMPLOYEEONETOMANYUNIDIRECTIONAL
+
+  - changeSet:
+      id: 43
+      author: sevenlist
+      changes:
+        - addUniqueConstraint:
+            columnNames: PHONES_ID
+            tableName: EMPLOYEEONETOMANYUNIDIRECTIONAL_PHONEONETOMANYUNIDIRECTIONAL
