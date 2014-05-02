@@ -7,3 +7,7 @@ databaseChangeLog:
   - include:
       file: 02_create_table_X.yaml
       relativeToChangelogFile: true
+
+  - include:
+      file: 03_create_tables_C_D_and_E.yaml
+      relativeToChangelogFile: true

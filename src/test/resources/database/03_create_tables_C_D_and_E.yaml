@@ -1,0 +1,73 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: 1
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: C
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: VARCHAR(255)
+              - column:
+                  name: D_ID
+                  type: BIGINT(19)
+
+  - changeSet:
+      id: 2
+      author: sevenlist
+      changes:
+        - createTable:
+            tableName: D
+            columns:
+              - column:
+                  name: ID
+                  type: BIGINT(19)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: NAME
+                  type: VARCHAR(255)
+              - column:
+                  name: SECONDNAME
+                  type: VARCHAR(255)
+              - column:
+                  name: DTYPE
+                  type: VARCHAR(31)
+
+  - changeSet:
+      id: 3
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_43_0
+            tableName: C
+
+  - changeSet:
+      id: 4
+      author: sevenlist
+      changes:
+        - addPrimaryKey:
+            columnNames: ID
+            constraintName: CONSTRAINT_44_0
+            tableName: D
+
+  - changeSet:
+      id: 5
+      author: sevenlist
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: D_ID
+            baseTableName: C
+            constraintName: FK_8B591SEPTVC6KUEOMH0CXWPNK
+            onDelete: RESTRICT
+            onUpdate: RESTRICT
+            referencedColumnNames: ID
+            referencedTableName: D

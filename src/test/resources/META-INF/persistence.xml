@@ -12,6 +12,9 @@
 
         <class>com.sevenlist.jpaplayground.datamodel.A</class>
         <class>com.sevenlist.jpaplayground.datamodel.B</class>
+        <class>com.sevenlist.jpaplayground.datamodel.C</class>
+        <class>com.sevenlist.jpaplayground.datamodel.D</class>
+        <class>com.sevenlist.jpaplayground.datamodel.E</class>
         <class>com.sevenlist.jpaplayground.datamodel.X</class>
 
         <!-- Many-to-one -->

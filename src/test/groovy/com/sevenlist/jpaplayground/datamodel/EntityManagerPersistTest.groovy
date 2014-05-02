@@ -59,4 +59,16 @@ class EntityManagerPersistTest extends AbstractDatabaseTestcase {
         e.cause.class == TransientPropertyValueException
         e.cause.message.contains 'Not-null property references a transient value - transient instance must be saved before current operation'
     }
+
+    def "inheritance works out of the box"() {
+        given:
+        def c = new C(d: new E())
+
+        when:
+        persistEntityAndCommit(c)
+        C foundC = findEntity(c)
+
+        then:
+        ((E) foundC.d).secondName == 'e'
+    }
 }
