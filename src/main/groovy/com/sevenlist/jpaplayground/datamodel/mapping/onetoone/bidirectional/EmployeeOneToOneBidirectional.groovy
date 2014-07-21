@@ -15,7 +15,6 @@ class EmployeeOneToOneBidirectional extends AbstractEntity {
     @OneToOne(cascade = PERSIST)
     ParkingSpaceOneToOneBidirectional parkingSpace
 
-    @Override
     void setParkingSpace(ParkingSpaceOneToOneBidirectional parkingSpace) {
         this.parkingSpace = parkingSpace
         parkingSpace.employee = this

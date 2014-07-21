@@ -13,7 +13,6 @@ class EmployeeOneToManyBidirectional extends AbstractEntity {
     @ManyToOne(cascade = PERSIST)
     DepartmentOneToManyBidirectional department
 
-    @Override
     void setDepartment(DepartmentOneToManyBidirectional department) {
         this.department = department
         department.employees << this
