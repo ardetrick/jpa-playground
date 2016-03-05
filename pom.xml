@@ -31,6 +31,9 @@
     <profiles>
         <profile>
             <id>liquibase</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
